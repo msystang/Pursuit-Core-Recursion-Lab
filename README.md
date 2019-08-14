@@ -71,12 +71,33 @@ sumEvens([10, 5, 1, 2, 12]); //returns 24
 ```
 Answer:
 ```swift
+//with higher order function
 func sumEvens(_ arr: [Int], index: Int = 0) -> Int {
 let evenArr = arr.filter({ $0 % 2 == 0 })
 if index >= evenArr.count { return 0 }
 
 let sum = evenArr[index] + sumEvens(arr, index: index + 1)
 return sum
+}
+
+sumEvens([2, 3, 5, 6])
+sumEvens([10, 5, 1, 2, 12])
+
+//without using higher order functions
+func sumEvens(_ arr: [Int]) -> Int {
+//base case
+let firstNum = arr[0]
+let remainingNum = Array(arr[1...])
+//If there's only one element in arr
+if arr.count == 1 && firstNum % 2 == 0 { return arr[0] }
+else if arr.count == 1 && firstNum % 2 != 0 { return 0 }
+
+//recursive call
+if firstNum % 2 == 0 {
+return firstNum + sumEvens(remainingNum)
+} else {
+return 0 + sumEvens(remainingNum)
+}
 }
 
 sumEvens([2, 3, 5, 6])
