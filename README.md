@@ -10,7 +10,15 @@ output: 21
 
 //21 = 6 + 5 + 4 + 3 + 2 + 1
 ```
+Answer:
+```swift
+func sumOfNumbers(n: Int) -> Int {
+if n <= 0 { return 0 }
+return n + sumOfNumbers(n: n - 1)
+}
 
+sumOfNumbers(n: 6)
+```
 
 - ### Multiply array
 
