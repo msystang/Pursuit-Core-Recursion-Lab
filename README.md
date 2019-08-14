@@ -1,6 +1,6 @@
 # Recursion Exercises
 
-- ### Sum of all from 1 to n
+- ### 1. Sum of all from 1 to n
 
 Write a function that takes in a number as input and recursively finds the sum of all numbers up to and including that number.
 
@@ -20,13 +20,24 @@ return n + sumOfNumbers(n: n - 1)
 sumOfNumbers(n: 6)
 ```
 
-- ### Multiply array
+- ### 2. Multiply array
 
 Write a function called `multArr` that takes in an array of numbers as an argument and recursively multiplies together all of the values in the array.
 
 ```js
 multArr([2, 3, 5]); // returns 30
 multArr([5, 5, 1, 2]); //returns 50
+```
+Answer:
+```swift
+func multArr(arr: [Int], index: Int = 0) -> Int {
+if index == arr.count { return 1 }
+let product = arr[index] * multArr(arr: arr, index: index + 1)
+return product
+}
+//
+multArr(arr: [2, 3, 5])
+multArr(arr: [5, 5, 1, 2])
 ```
 
 - ### Concatenate array
