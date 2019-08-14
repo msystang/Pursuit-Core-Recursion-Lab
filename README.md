@@ -112,7 +112,18 @@ Write a function called `range` which takes in two numbers (num1, num2) as argum
 range(2,10); // returns [2, 3, 4, 5, 6,7, 8, 9, 10]
 range(17,20); // returns [17, 18, 19, 20]
 ```
+Answer:
+```swift
+func range(_ num1: Int, _ num2: Int)->[Int]{
+//base case
+if num1 == num2 { return [num1] }
+//recusive call
+return [num1] + range(num1 + 1, num2)
+}
 
+range(2,10)
+range(17,20)
+```
 
 - ### 6. Triple Step
 
