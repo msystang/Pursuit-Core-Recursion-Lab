@@ -40,7 +40,7 @@ multArr(arr: [2, 3, 5])
 multArr(arr: [5, 5, 1, 2])
 ```
 
-- ### Concatenate array
+- ### 3. Concatenate array
 
 Write a function called `concatArr` that takes in an array of strings as an argument and recursively concatenates the strings together into a single string, with spaces between each original string.
 
@@ -49,13 +49,36 @@ concatArr(['is', 'it', 'tomorrow']); // returns 'is it tomorrow'
 concatArr(['or', 'just', 'the', 'end', 'of', 'time']); //returns 'or just the end of time'
 ```
 
-- ### Sum evens
+Answer:
+```swift
+func concatArr(arr: [String], index: Int = 0) -> String {
+if index == arr.count { return "" }
+let string = "\(arr[index]) " + concatArr(arr: arr, index: index + 1)
+return string
+}
+
+concatArr(arr: ["is", "it", "tomorrow"])
+concatArr(arr: ["or", "just", "the", "end", "of", "time"])
+```
+
+- ### 4. Sum evens
 
 Write a function called `sumEvens` that takes in an array of numbers as an argument and recursively sums only the even numbers in the array.
 
 ```js
 sumEvens([2, 3, 5, 6]); // returns 8
 sumEvens([10, 5, 1, 2, 12]); //returns 24
+```
+Answer:
+```swift
+func sumEvens(arr: [Int], index: Int = 0) -> Int {
+if index >= arr.count {return 0 }
+let sum = arr[index] + sumEvens(arr: arr, index: index + 2)
+return sum
+}
+
+sumEvens(arr: [2, 3, 5, 6])
+sumEvens(arr: [10, 5, 1, 2, 12])
 ```
 
 - ### Recursive range
