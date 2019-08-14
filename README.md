@@ -71,17 +71,19 @@ sumEvens([10, 5, 1, 2, 12]); //returns 24
 ```
 Answer:
 ```swift
-func sumEvens(arr: [Int], index: Int = 0) -> Int {
-if index >= arr.count {return 0 }
-let sum = arr[index] + sumEvens(arr: arr, index: index + 2)
+func sumEvens(_ arr: [Int], index: Int = 0) -> Int {
+let evenArr = arr.filter({ $0 % 2 == 0 })
+if index >= evenArr.count { return 0 }
+
+let sum = evenArr[index] + sumEvens(arr, index: index + 1)
 return sum
 }
 
-sumEvens(arr: [2, 3, 5, 6])
-sumEvens(arr: [10, 5, 1, 2, 12])
+sumEvens([2, 3, 5, 6])
+sumEvens([10, 5, 1, 2, 12])
 ```
 
-- ### Recursive range
+- ### 5. Recursive range
 
 Write a function called `range` which takes in two numbers (num1, num2) as arguments. The function should return an array of numbers between num1 and num2.
 
@@ -91,7 +93,7 @@ range(17,20); // returns [17, 18, 19, 20]
 ```
 
 
-- ### Triple Step
+- ### 6. Triple Step
 
 A child is running up a staircase with n steps and can hop either 1 step 2 steps or 3 steps at a time. Write a function called 'tripleStep', that takes in an argument `n` that represents the number of steps in the staircase, and returns a count of how many possible ways the child can run up the stairs.
 
@@ -104,7 +106,7 @@ tripleStep(10); //returns 274
 
 Source: Cracking the Coding Interview
 
-- ### Coin Combos
+- ### 7. Coin Combos
 
 Given an infinite number of quarters, dimes, nickels, and pennies, write code to calculate the number of possible ways of giving exact change for `n` cents.
 
