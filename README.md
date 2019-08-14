@@ -138,6 +138,22 @@ tripleStep(10); //returns 274
 
 Source: Cracking the Coding Interview
 
+Answer:
+```swift
+func tripleStep(_ n: Int) -> Int {
+if n == 1 || n == 0 { return 1 }
+if n == 2 { return 2}
+
+return tripleStep(n - 3) + tripleStep(n - 2) + tripleStep(n - 1)
+}
+
+tripleStep(3) //returns 4
+tripleStep(4) //returns 7
+tripleStep(5) //returns 13
+tripleStep(10) //returns 274
+```
+
+
 - ### 7. Coin Combos
 
 Given an infinite number of quarters, dimes, nickels, and pennies, write code to calculate the number of possible ways of giving exact change for `n` cents.
